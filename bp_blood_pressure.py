@@ -80,7 +80,7 @@ def TrainNetwork(sample,label):
     return w1,w2,hid_offset,out_offset
 
 def Test():
-	time_start = time.time()
+    time_start = time.time()
     data = LoadFile('bp_data.csv')
     random.shuffle(data)
     

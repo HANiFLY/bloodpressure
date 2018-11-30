@@ -102,7 +102,9 @@ def Test():
     tn = len(data)
 
     w1, w2, hid_offset, out_offset = TrainNetwork(train_data,train_label)
-
+    print 'values of parameters'
+    print w1, w2, hid_offset, out_offset
+    print '******'
     for i in range(0, tn):
         hid_value=np.dot(test_data[i], w1)+hid_offset
         hid_act=get(hid_value)

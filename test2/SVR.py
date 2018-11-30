@@ -39,13 +39,14 @@ with open('test.csv', 'r') as f:
 # 训练SVR模型
 
 #初始化SVR
-parameters = {'kernel':('linear', 'rbf'), 'C':[1, 10]}
-svr = GridSearchCV(SVR(kernel='linear'), cv=5, param_grid = [
+# parameters = {'kernel':('linear', 'rbf'), 'C':[1.28, 10]}
+# svr = GridSearchCV(SVR(),parameters)
+svr = GridSearchCV(SVR(), cv=3, param_grid = [
                     # {'C': [100], 'kernel': ['linear']}])
                     {'C': [ 1.28 ], 'gamma': np.logspace(-42, 0, 25), 'kernel': ['rbf']}])
                    # param_grid={"C": [1e0, 1e-1, 1e-2],
                    #             "gamma": np.logspace(-25, 0, 25)})
-#记录训练时间
+# #记录训练时间
 # t0 = time.time()
 #训练
 svr.fit(X_train, y_train2)
@@ -76,7 +77,7 @@ plt.scatter(x, y_svr, c = 'g')
 
 plt.xlabel('data')
 plt.ylabel('target')
-plt.title('SVR versus Kernel Ridge')
+plt.title('SVR versus True Value')
 plt.legend()
 
 plt.show()
